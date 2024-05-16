@@ -4,11 +4,10 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(p => p.AddPolicy("corsenabled", 
-    options => {
-        options.WithOrigins("*")
-        .AllowAnyMethod().AllowAnyHeader();
-    }));
+builder.Services.AddCors(p => p.AddPolicy("corsenabled", options =>
+{
+    options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
 
 // Add services to the container.
 string connectionString =
@@ -33,10 +32,7 @@ builder.Services.AddSwaggerGen(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-
-}
+if (app.Environment.IsDevelopment()) { }
 app.UseSwagger();
 app.UseSwaggerUI(options =>
 {
