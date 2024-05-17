@@ -5,10 +5,10 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-/*builder.Services.AddCors(p => p.AddPolicy("corsenabled", options =>
+builder.Services.AddCors(p => p.AddPolicy("corsenabled", options =>
 {
     options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
-}));*/
+}));
 
 // Add services to the container.
 string connectionString =
@@ -44,8 +44,8 @@ app.UseSwaggerUI(options =>
 });
 
 app.UseHttpsRedirection();
-/*
-app.UseCors("corsenabled");*/
+
+app.UseCors("corsenabled");
 
 app.UseAuthorization();
 
